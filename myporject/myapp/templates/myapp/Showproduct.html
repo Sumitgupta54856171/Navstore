@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Optional: Custom font for better aesthetics */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-blue-50 min-h-screen p-6">
+    <div class="max-w-7xl mx-auto">
+        <h1 class="text-4xl font-extrabold text-center text-gray-800 mb-12">Our Product Catalog</h1>
+
+        <div id="product-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <!-- Sample Product Card 1 -->
+            <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 p-6 flex flex-col justify-between">
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-2 truncate">Luxury Smartwatch Pro</h2>
+                    <p class="text-sm text-gray-600 mb-4">ID: <span class="font-semibold">101</span> | Image ID: <span class="font-semibold">5001</span></p>
+
+                    <div class="space-y-2 text-gray-700 text-sm">
+                        <p><span class="font-medium">Price:</span> $<span class="font-semibold">299</span></p>
+                        <p><span class="font-medium">Quantity:</span> <span class="font-semibold">75</span> units</p>
+                        <p><span class="font-medium">Category:</span> Electronics</p>
+                        <p><span class="font-medium">Brand:</span> TechGadget</p>
+                        <p><span class="font-medium">Color:</span> Midnight Black</p>
+                        <p><span class="font-medium">Material:</span> Stainless Steel</p>
+                        <p><span class="font-medium">Rating:</span> <span class="font-semibold text-yellow-500">4.8</span>/5</p>
+                    </div>
+                    <p class="text-gray-800 mt-4 text-base leading-relaxed">
+                        A sleek and powerful smartwatch with advanced health tracking and long battery life.
+                    </p>
+                </div>
+                <div class="mt-6 flex justify-end">
+                    <button class="bg-blue-600 text-white px-5 py-2 rounded-lg font-medium text-base hover:bg-blue-700 transition duration-300 shadow-md hover:shadow-lg">
+                        View Details
+                    </button>
+                </div>
+            </div>
+
+            <!-- Sample Product Card 2 -->
+            <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 p-6 flex flex-col justify-between">
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-2 truncate">Ergonomic Office Chair</h2>
+                    <p class="text-sm text-gray-600 mb-4">ID: <span class="font-semibold">102</span> | Image ID: <span class="font-semibold">5002</span></p>
+
+                    <div class="space-y-2 text-gray-700 text-sm">
+                        <p><span class="font-medium">Price:</span> $<span class="font-semibold">185</span></p>
+                        <p><span class="font-medium">Quantity:</span> <span class="font-semibold">120</span> units</p>
+                        <p><span class="font-medium">Category:</span> Furniture</p>
+                        <p><span class="font-medium">Brand:</span> ComfortZone</p>
+                        <p><span class="font-medium">Color:</span> Charcoal Gray</p>
+                        <p><span class="font-medium">Material:</span> Mesh Fabric</p>
+                        <p><span class="font-medium">Rating:</span> <span class="font-semibold text-yellow-500">4.5</span>/5</p>
+                    </div>
+                    <p class="text-gray-800 mt-4 text-base leading-relaxed">
+                        Designed for maximum comfort and support during long working hours.
+                    </p>
+                </div>
+                <div class="mt-6 flex justify-end">
+                    <button class="bg-blue-600 text-white px-5 py-2 rounded-lg font-medium text-base hover:bg-blue-700 transition duration-300 shadow-md hover:shadow-lg">
+                        View Details
+                    </button>
+                </div>
+            </div>
+
+            <!-- Sample Product Card 3 -->
+            <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 p-6 flex flex-col justify-between">
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-2 truncate">Wireless Noise-Cancelling Headphones</h2>
+                    <p class="text-sm text-gray-600 mb-4">ID: <span class="font-semibold">103</span> | Image ID: <span class="font-semibold">5003</span></p>
+
+                    <div class="space-y-2 text-gray-700 text-sm">
+                        <p><span class="font-medium">Price:</span> $<span class="font-semibold">149</span></p>
+                        <p><span class="font-medium">Quantity:</span> <span class="font-semibold">90</span> units</p>
+                        <p><span class="font-medium">Category:</span> Audio</p>
+                        <p><span class="font-medium">Brand:</span> SoundBeats</p>
+                        <p><span class="font-medium">Color:</span> Silver</p>
+                        <p><span class="font-medium">Material:</span> Plastic & Leather</p>
+                        <p><span class="font-medium">Rating:</span> <span class="font-semibold text-yellow-500">4.7</span>/5</p>
+                    </div>
+                    <p class="text-gray-800 mt-4 text-base leading-relaxed">
+                        Immersive sound quality with industry-leading noise cancellation.
+                    </p>
+                </div>
+                <div class="mt-6 flex justify-end">
+                    <button class="bg-blue-600 text-white px-5 py-2 rounded-lg font-medium text-base hover:bg-blue-700 transition duration-300 shadow-md hover:shadow-lg">
+                        View Details
+                    </button>
+                </div>
+            </div>
+
+            <!-- Sample Product Card 4 -->
+            
+
+            <!-- You can add more product cards here following the same structure -->
+
+        </div>
+    </div>
+</body>
+</html>

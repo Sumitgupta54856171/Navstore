@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Amazing Homepage</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Optional: Google Font - Inter for a modern look */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header/Navigation Bar -->
+    <header class="bg-white shadow-sm py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <!-- Logo/Site Name -->
+            <a href="#" class="text-2xl font-bold text-indigo-600 hover:text-indigo-800 transition duration-300">
+                NevStore
+            </a>
+            <!-- Navigation Links (Hidden on small screens, can add mobile menu with JS) -->
+            <nav class="hidden md:flex space-x-6">
+                <a href="/" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300">Home</a>
+                <a href="/addproduct" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300">Products</a>
+                <a href="/about" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300">About Us</a>
+                <a href="/help" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300">Help</a>
+            </nav>
+            <!-- Call to Action Button -->
+            <a href="/logout" class="bg-indigo-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-indigo-700 transition duration-300 shadow-md hidden md:block">
+                logout
+            </a>
+            <!-- Mobile Menu Button (Hamburger Icon - Add JavaScript for functionality) -->
+            <button class="md:hidden text-gray-600 hover:text-indigo-600 focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-r from-blue-600 to-purple-700 text-white py-20 md:py-28 lg:py-36 overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <!-- Optional background pattern or shape -->
+            <svg class="w-full h-full" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M0 0 C50 0 50 100 100 100 L100 0 Z" fill="url(#gradient)"/>
+                <defs>
+                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#3b82f6" />
+                        <stop offset="100%" stop-color="#8b5cf6" />
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
+                Discover the <span class="text-yellow-300">Future</span> of Innovation
+            </h1>
+            <p class="text-lg sm:text-xl lg:text-2xl text-gray-200 mb-10 max-w-3xl mx-auto">
+                We empower your ideas with cutting-edge solutions and unparalleled support.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="#" class="inline-block bg-white text-indigo-600 px-8 py-3 rounded-full font-bold text-lg hover:bg-gray-100 transition duration-300 shadow-lg transform hover:scale-105">
+                    Explore Solutions
+                </a>
+                <a href="#" class="inline-block border-2 border-white text-white px-8 py-3 rounded-full font-bold text-lg hover:bg-white hover:text-indigo-600 transition duration-300 transform hover:scale-105">
+                    Learn More
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 p-6 flex flex-col justify-between">
+        <div>
+            <h2 class="text-2xl font-bold text-gray-900 mb-2 truncate">Premium Yoga Mat</h2>
+            <p class="text-sm text-gray-600 mb-4">ID: <span class="font-semibold">104</span> | Image ID: <span class="font-semibold">5004</span></p>
+
+            <div class="space-y-2 text-gray-700 text-sm">
+                <p><span class="font-medium">Price:</span> $<span class="font-semibold">45</span></p>
+                <p><span class="font-medium">Quantity:</span> <span class="font-semibold">200</span> units</p>
+                <p><span class="font-medium">Category:</span> Fitness</p>
+                <p><span class="font-medium">Brand:</span> ActiveLife</p>
+                <p><span class="font-medium">Color:</span> Ocean Blue</p>
+                <p><span class="font-medium">Material:</span> Eco-friendly TPE</p>
+                <p><span class="font-medium">Rating:</span> <span class="font-semibold text-yellow-500">4.9</span>/5</p>
+            </div>
+            <p class="text-gray-800 mt-4 text-base leading-relaxed">
+                Non-slip, durable, and comfortable mat for all your yoga and fitness needs.
+            </p>
+        </div>
+        <div class="mt-6 flex justify-end">
+            <button class="bg-blue-600 text-white px-5 py-2 rounded-lg font-medium text-base hover:bg-blue-700 transition duration-300 shadow-md hover:shadow-lg">
+                View Details
+            </button>
+        </div>
+    </div>
+                <!-- Feature 3 -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-lg text-center transform hover:scale-105 transition duration-300">
+                    <div class="text-indigo-500 mb-4">
+                        <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Proven Results</h3>
+                    <p class="text-gray-600">
+                        We have a track record of delivering measurable success and helping our clients achieve their goals efficiently.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="bg-indigo-700 py-16 md:py-20 text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl sm:text-4xl font-extrabold mb-6">Ready to Transform Your Business?</h2>
+            <p class="text-lg sm:text-xl text-indigo-100 mb-10">
+                Join thousands of satisfied customers who are already experiencing the difference.
+            </p>
+            <a href="#" class="inline-block bg-white text-indigo-700 px-10 py-4 rounded-full font-bold text-xl hover:bg-gray-100 transition duration-300 shadow-lg transform hover:scale-105">
+                Contact Us Today
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:flex md:justify-between md:items-center">
+            <p class="text-sm">&copy; 2025 YourBrand. All rights reserved.</p>
+            <nav class="mt-4 md:mt-0 space-x-6">
+                <a href="#" class="hover:text-white transition duration-300 text-sm">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition duration-300 text-sm">Terms of Service</a>
+            </nav>
+        </div>
+    </footer>
+
+</body>
+</html>
