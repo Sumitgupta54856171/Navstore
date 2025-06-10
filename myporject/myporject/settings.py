@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 import os 
 from pathlib import Path
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -83,17 +84,18 @@ DATABASES = {
         'PASSWORD': '12345687',
         'HOST': '127.0.0.1',
         'PORT': '5432',
-    }
-}
-DATABASES = {
-    'default': {
-        'ENGINE': 'djongo',       # Djongo engine
-        'NAME': 'your_db_name',   # Database name
+    },
+    'mongodb': {
+        'ENGINE': 'djongo',
+        'NAME': 'sessiondb',
         'CLIENT': {
-            'host': 'mongodb://localhost:27017/sessionDB',  
+            'host': 'localhost',
+            'port': 27017,
+        }
     }
 }
-}
+
+
 # Redis Cache Configuration
 CACHES = {
     'default': {
@@ -153,5 +155,46 @@ STATICFILES_DIRS=[
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+DATABASE_ROUTERS = ['myporject.routers.MongoDBRouter']
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'rest_framework.authentication.SessionAuthentication', # Optional: for browsable API/admin
+        'rest_framework.authentication.BasicAuthentication', # Optional
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated', # Default to requiring authentication
+    ),
+}
+
+# Configure Simple JWT
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),  # How long access tokens are valid
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),   # How long refresh tokens are valid
+    "ROTATE_REFRESH_TOKENS": False,                # If true, refresh tokens are rotated after use
+    "BLACKLIST_AFTER_ROTATION": False,            # If true, old refresh tokens are blacklisted after rotation
+
+    "ALGORITHM": "HS256",                          # Signing algorithm for the JWT
+    "SIGNING_KEY": SECRET_KEY,                     # Django's SECRET_KEY is used for signing (important!)
+    "VERIFYING_KEY": "",                           # Not strictly needed if SIGNING_KEY is set
+    "AUDIENCE": None,                              # JWT audience claim
+    "ISSUER": None,                                # JWT issuer claim
+    "JWK_URL": None,                               # URL for JSON Web Key Set (JWKS)
+    "LEEWAY": 0,                                   # Leeway for clock skew (in seconds)
+
+    "AUTH_HEADER_TYPES": ("Bearer",),              # How tokens are expected in the Authorization header
+    "AUTH_HEADER_NAME": "HTTP_AUTHORIZATION",     # Header name for tokens
+    "USER_ID_FIELD": "id",                         # Field to identify user in JWT payload
+    "USER_ID_CLAIM": "user_id",                    # Claim name for user ID in JWT payload
+    "USER_AUTHENTICATION_RULE": "rest_framework_simplejwt.authentication.default_user_authentication_rule",
+
+    "AUTH_TOKEN_CLASSES": ("rest_framework_simplejwt.tokens.AccessToken",),
+    "TOKEN_TYPE_CLAIM": "token_type",             # Claim name for token type
+
+    "JTI_CLAIM": "jti",                           # JWT ID claim for blacklisting
+
+    "SLIDING_TOKEN_LIFETIME": timedelta(minutes=5), # For sliding tokens
+    "SLIDING_TOKEN_REFRESH_LIFETIME": timedelta(days=1), # For sliding tokens
+}
