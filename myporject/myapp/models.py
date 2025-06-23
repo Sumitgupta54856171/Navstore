@@ -12,31 +12,23 @@ class User(models.Model):
         app_label = 'myapp'
         db_table = 'myapp_user'
 class customer(models.Model):
-    productid = models.IntegerField()
+    productid = models.CharField(max_length=30)
     productname = models.CharField(max_length=30)
     productprice = models.IntegerField()
     productquantity = models.IntegerField()
-    productimageid = models.IntegerField(default=0)
+    image = models.ImageField(upload_to='products/')
     productdescription = models.CharField(max_length=30)
-    productcategory = models.CharField(max_length=30)
     productbrand = models.CharField(max_length=30)
     productcolor = models.CharField(max_length=30)
     productmaterial = models.CharField(max_length=30)
-    productrate = models.CharField(max_length=250)
+    category = models.CharField(max_length=250)
+    email = models.CharField(max_length=250)
  
     def __str__(self):
         return self.productname
     class Meta:
         app_label = 'myapp'
         db_table = 'myapp_customer'     
-    
-class image(models.Model):
-    name = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='products/')
-    def __str__(self):
-      return self.name
-    class Meta:
-        app_label = 'other_app_for_mongo' 
-        db_table = 'images'
+
        
   

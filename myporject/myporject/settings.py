@@ -85,14 +85,6 @@ DATABASES = {
         'HOST': '127.0.0.1',
         'PORT': '5432',
     },
-    'mongodb': {
-        'ENGINE': 'djongo',
-        'NAME': 'sessiondb',
-        'CLIENT': {
-            'host': 'localhost',
-            'port': 27017,
-        }
-    }
 }
 
 
@@ -157,7 +149,6 @@ STATICFILES_DIRS=[
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
-DATABASE_ROUTERS = ['myporject.routers.MongoDBRouter']
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',

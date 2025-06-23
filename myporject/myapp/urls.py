@@ -9,4 +9,6 @@ urlpatterns = [
     path('signup', signup.signup, name='signup'),
     path('login', login.login, name='login'),
     path('addproduct', itemadd.Additems, name='add-product'),
+    path('logout', login.logout, name='logout'),
+    path('deleteproduct', login.deleteproduct, name='delete-product'),
 ] 

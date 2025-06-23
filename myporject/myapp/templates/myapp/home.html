@@ -30,10 +30,15 @@
                 <a href="/about" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300">About Us</a>
                 <a href="/help" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300">Help</a>
             </nav>
-            <!-- Call to Action Button -->
+        {% if email %}
             <a href="/logout" class="bg-indigo-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-indigo-700 transition duration-300 shadow-md hidden md:block">
                 logout
             </a>
+            {% else %}
+            <a href="/login" class="bg-indigo-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-indigo-700 transition duration-300 shadow-md hidden md:block">
+                login
+            </a>
+            {% endif %}
             <!-- Mobile Menu Button (Hamburger Icon - Add JavaScript for functionality) -->
             <button class="md:hidden text-gray-600 hover:text-indigo-600 focus:outline-none">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
@@ -73,30 +78,35 @@
         </div>
     </section>
 
+    {% for customer in customers %}
     <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 p-6 flex flex-col justify-between">
         <div>
-            <h2 class="text-2xl font-bold text-gray-900 mb-2 truncate">Premium Yoga Mat</h2>
-            <p class="text-sm text-gray-600 mb-4">ID: <span class="font-semibold">104</span> | Image ID: <span class="font-semibold">5004</span></p>
+            <img src="{{customer.image.url}}" alt="">
+            <h2 class="text-2xl font-bold text-gray-900 mb-2">{{customer.productname}}</h2>
+            <p class="text-sm text-gray-600 mb-4">ID: <span class="font-semibold">{{customer.productid}}</span> | Image ID: <span class="font-semibold">5004</span></p>
 
             <div class="space-y-2 text-gray-700 text-sm">
-                <p><span class="font-medium">Price:</span> $<span class="font-semibold">45</span></p>
-                <p><span class="font-medium">Quantity:</span> <span class="font-semibold">200</span> units</p>
-                <p><span class="font-medium">Category:</span> Fitness</p>
-                <p><span class="font-medium">Brand:</span> ActiveLife</p>
-                <p><span class="font-medium">Color:</span> Ocean Blue</p>
-                <p><span class="font-medium">Material:</span> Eco-friendly TPE</p>
+                <p><span class="font-medium">Price:</span> $<span class="font-semibold">{{customer.productprice}}</span></p>
+                <p><span class="font-medium">Quantity:</span> <span class="font-semibold">{{customer.productquantity}}</span> units</p>
+                <p><span class="font-medium">Category:</span> {{customer.category}}</p>
+                <p><span class="font-medium">Brand:</span> {{customer.productbrand}}</p>
+                <p><span class="font-medium">Color:</span> {{customer.productcolor}}</p>
+                <p><span class="font-medium">Material:</span> {{customer.productmaterial}}</p>
                 <p><span class="font-medium">Rating:</span> <span class="font-semibold text-yellow-500">4.9</span>/5</p>
             </div>
             <p class="text-gray-800 mt-4 text-base leading-relaxed">
-                Non-slip, durable, and comfortable mat for all your yoga and fitness needs.
+                {{customer.productdescription}}
             </p>
         </div>
-        <div class="mt-6 flex justify-end">
-            <button class="bg-blue-600 text-white px-5 py-2 rounded-lg font-medium text-base hover:bg-blue-700 transition duration-300 shadow-md hover:shadow-lg">
-                View Details
+        <form action="{% url 'delete-product' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="productid" value="{{customer.productid}}">
+            <button type="submit" class="bg-blue-600 text-white px-5 py-2 rounded-lg font-medium text-base hover:bg-blue-700 transition duration-300 shadow-md hover:shadow-lg">
+                delete
             </button>
-        </div>
+        </form>
     </div>
+    {% endfor %}
                 <!-- Feature 3 -->
                 <div class="bg-gray-50 p-8 rounded-xl shadow-lg text-center transform hover:scale-105 transition duration-300">
                     <div class="text-indigo-500 mb-4">

@@ -2,7 +2,7 @@ function Itemlist(){
 
 return <>
 
-<div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 grid grid-row-2 gap-14">
+<div className="bg-green-700 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 grid grid-row-2 gap-14 text-black">
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDykslgE83yWvgu2tU69olaeqOVIFdwPeLyg&s" ></img>
 <p className="flex-row">
     <span>good</span>

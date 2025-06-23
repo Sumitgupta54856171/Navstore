@@ -22,7 +22,7 @@ checkAuthentication();
 },[user])
   return(<>
   <ContentContext.Provider value={{user,setUser}}>
-  <div className="h-screen w-full overflow-auto">
+  <div className="">
   <Navbar></Navbar>
   <Routes>
    <Route path="/" element={<Home/>}></Route>

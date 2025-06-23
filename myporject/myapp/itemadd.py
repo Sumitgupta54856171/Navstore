@@ -1,25 +1,26 @@
 from django.shortcuts import redirect, render
-from django.contrib import messages
-from .models import image
-from .formcustomer import CustomerForm, ImageForm  
 import uuid
+from .models import customer
 import logging
 logger = logging.getLogger(__name__)
 def Additems(request):
     if request.method == "POST":
-        print('POST request received')
-        product_id = str(uuid.uuid4())[:8]
-        print(f'Generated product_id: {product_id}')
-        name =request.COOKIES.get('e-com')
-        print(name,request.FILES)
-        image_form = ImageForm(request.POST,request.FILES)
-        print(name)
-        print(image_form.is_valid())
-        form = CustomerForm(request.POST)
-        print(form.is_valid())
-        if form.is_valid():
-            form.save()
-            return redirect('/')
+        productid = uuid.uuid4()
+        productname = request.POST.get('productname')
+        productprice = request.POST.get('productprice')
+        productquantity = request.POST.get('productquantity')
+        productdescription = request.POST.get('productdescription')
+        productbrand = request.POST.get('productbrand')
+        productcolor = request.POST.get('productcolor')
+        productmaterial = request.POST.get('productmaterial')
+        category = request.POST.get('category')
+        image = request.FILES.get('image')
+        email = request.COOKIES.get('e-com')
+        
+        customers = customer(productid=productid, productname=productname, productprice=productprice, productquantity=productquantity, productdescription=productdescription, productbrand=productbrand, productcolor=productcolor, productmaterial=productmaterial, category=category, image=image, email=email)
+        customers.save()
+        return redirect('/')
                
     return render(request, 'Add.html')
+
 

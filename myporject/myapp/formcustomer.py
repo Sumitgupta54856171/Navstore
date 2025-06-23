@@ -1,17 +1,13 @@
 from django import forms
-from .models import User,customer,image
+from .models import User,customer
 from django import forms
 
 class CustomerForm(forms.ModelForm):
     class Meta:
         model = customer
         fields = ['productname', 'productprice', 'productquantity', 
-                 'productdescription', 'productcategory', 'productbrand', 
-                 'productcolor', 'productmaterial', 'productrate']
-class ImageForm(forms.ModelForm):
-    class Meta:
-        model = image
-        fields = ['name', 'image']
+                 'productdescription', 'productbrand', 
+                 'productcolor', 'productmaterial','category','image','email','productid']
 class userform(forms.ModelForm):
     class Meta:
         model = User
