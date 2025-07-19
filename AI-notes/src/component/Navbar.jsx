@@ -27,10 +27,10 @@ function Navbar(){
                 <Link to="/">Home</Link>
             </li>
             <li className="relative">
-                <Link to="/apperal"><button onMouseEnter={handleHover1} className="text-black sticky">Apparel</button></Link>
+                <Link to="/apperal"><span>Apperal</span>  <button onMouseEnter={handleHover1} className="text-black sticky"><img src="https://cdn-icons-png.flaticon.com/512/2985/2985150.png" alt="CodeJoKay - Web Solutions & Freelance Help" className="size-3"/></button></Link>
             </li>
             <li className="relative">
-                <Link to="/accessories"><button onMouseEnter={handleHover}>Accessories</button></Link>
+                <Link to="/accessories"><span>Accessories</span>  <button onMouseEnter={handleHover}><img src="https://cdn-icons-png.flaticon.com/512/2985/2985150.png" alt="CodeJoKay - Web Solutions & Freelance Help" className="size-3"/></button></Link>
             
             </li>
             <li>

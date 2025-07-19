@@ -1,19 +1,46 @@
-function Itemlist(){
+import React from 'react';
+import ItemCard from './ItemCard';
 
-return <>
+const sampleItems = [
+  {
+    id: 1,
+    imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDykslgE83yWvgu2tU69olaeqOVIFdwPeLyg&s',
+    name: 'Classic T-Shirt',
+    description: 'A comfortable and stylish t-shirt made from 100% premium cotton.',
+    price: '24.99',
+  },
+  {
+    id: 2,
+    imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDykslgE83yWvgu2tU69olaeqOVIFdwPeLyg&s',
+    name: 'Denim Jeans',
+    description: 'Perfectly fitted denim jeans for a modern and timeless look.',
+    price: '89.99',
+  },
+  {
+    id: 3,
+    imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDykslgE83yWvgu2tU69olaeqOVIFdwPeLyg&s',
+    name: 'Leather Jacket',
+    description: 'A sleek and durable leather jacket to elevate your style.',
+    price: '199.99',
+  },
+    {
+    id: 4,
+    imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDykslgE83yWvgu2tU69olaeqOVIFdwPeLyg&s',
+    name: 'Sneakers',
+    description: 'Lightweight and comfortable sneakers for everyday wear.',
+    price: '120.00',
+  },
+];
 
-<div className="bg-green-700 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 grid grid-row-2 gap-14 text-black">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDykslgE83yWvgu2tU69olaeqOVIFdwPeLyg&s" ></img>
-<p className="flex-row">
-    <span>good</span>
-    <span>import </span>
-    <span>rate</span>
-</p>
-    <div className="p-4 grid grid-cols-2 text-center">
-        <p className="text-gray-600 text-sm mb-4 border-0 border-black rounded bg-gray-500 w-30 h-10 ">cart</p>
-        <a href="/apparel" className="block text-center bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors w-30">View detail</a>
+function Itemlist() {
+  return (
+    <div className="container mx-auto px-4 py-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {sampleItems.map(item => (
+          <ItemCard key={item.id} item={item} />
+        ))}
+      </div>
     </div>
-</div>
-</>
+  );
 }
 export default Itemlist;

@@ -98,13 +98,22 @@
                 {{customer.productdescription}}
             </p>
         </div>
-        <form action="{% url 'delete-product' %}" method="post">
+        <section>
+        <form action="{% url 'deleteitems' %}" method="post">
             {% csrf_token %}
             <input type="hidden" name="productid" value="{{customer.productid}}">
             <button type="submit" class="bg-blue-600 text-white px-5 py-2 rounded-lg font-medium text-base hover:bg-blue-700 transition duration-300 shadow-md hover:shadow-lg">
                 delete
             </button>
         </form>
+        <form action="{% url 'updateitems' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="productid" value="{{customer.productid}}">
+            <button type="submit" class="bg-blue-600 text-white px-5 py-2 rounded-lg font-medium text-base hover:bg-blue-700 transition duration-300 shadow-md hover:shadow-lg">
+                update
+            </button>
+        </form>
+        </section>
     </div>
     {% endfor %}
                 <!-- Feature 3 -->

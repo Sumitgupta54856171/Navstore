@@ -7,13 +7,12 @@ from django.utils import timezone
 def signup(request):
     if request.method == "POST":
         email = request.POST.get('email')
-        # Check if user exists first
+    
         if User.objects.filter(email=email).exists():
             return HttpResponse('Email already exists')
         
         form = userform(request.POST)
         if form.is_valid():
-            # Add creation timestamp
             user = form.save(commit=False)
             user.createat = timezone.now()
             try:

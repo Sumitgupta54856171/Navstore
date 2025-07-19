@@ -16,7 +16,7 @@ async function handleSubmit(event){
         email,
         password
     }
-    const response = await axios.post('http://localhost:3000/api/login',data, {withCredentials: true})
+    const response = await axios.post('http://localhost:8000/api/login',data, {withCredentials: true})
     console.log(response);
     console.log('successfull')
     const token = response.data.user;
